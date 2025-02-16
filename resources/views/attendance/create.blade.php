@@ -5,12 +5,14 @@
             <form class="flex flex-col w-full" action="">
                 <div class="flex flex-col md:flex-row justify-start items-center mb-3 w-full">
                     <span class="flex font-sans font-medium text-sm text-start w-full ml-6 pb-1.5">Nama</span>
-                    <input class="flex rounded-full border-0 w-full" type="text" name="name" id="name">
+                    <input class="flex rounded-full border-0 w-full bg-slate-100" type="text" name="name"
+                        id="name">
                 </div>
 
                 <div class="flex flex-col md:flex-row justify-start items-center mb-3 w-full">
                     <span class="flex font-sans font-medium text-sm text-start w-full ml-6 pb-1.5">Pax</span>
-                    <select class="flex rounded-full border-0 w-full" type="text" name="pax" id="pax">
+                    <select class="flex rounded-full border-0 w-full bg-slate-100" type="text" name="pax"
+                        id="pax">
                         @for ($i = 0; $i <= 10; $i++)
                             <option value="{{ $i }}" {{ $i == 1 ? 'selected' : '' }}>{{ $i }}
                             </option>
@@ -21,12 +23,12 @@
                 <div class="flex flex-col md:flex-row justify-start items-start md:items-center mb-3 w-full">
                     <span class="flex font-sans font-medium text-sm text-start w-full ml-3 pb-1.5 mb-3">Hadir?</span>
                     <div class="flex flex-row justify-center items-center ml-2 mb-3">
-                        <input type="radio" name="attendance" id="attendance">
+                        <input type="radio" name="attendance" id="attendance" class="bg-slate-100">
                         <span class="font-sans font-normal text-sm text-start w-full ml-2">Yup 😆</span>
                     </div>
 
                     <div class="flex flex-row justify-center items-center ml-2 mb-3">
-                        <input type="radio" name="attendance" id="attendance">
+                        <input type="radio" name="attendance" id="attendance" class="bg-slate-100">
                         <span class="font-sans font-normal text-sm text-start w-full ml-2">Maaf ☹️😟</span>
                     </div>
                 </div>
@@ -34,7 +36,7 @@
                 <div class="flex flex-col md:flex-row justify-start items-center mb-3 w-full">
                     <span class="flex font-sans font-medium text-sm text-start w-full ml-6 pb-1.5">Ucapan untuk
                         kami</span>
-                    <textarea class="flex rounded-full border-0 w-full" type="text" name="name" id="name"></textarea>
+                    <textarea class="flex rounded-full border-0 w-full bg-slate-100" type="text" name="name" id="name"></textarea>
                 </div>
 
                 <div class="flex flex-col md:flex-row justify-start items-center mb-3 w-full">

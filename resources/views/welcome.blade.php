@@ -24,7 +24,7 @@
                 href="{{ route('rsvp.create') }}">RSVP</a>
             <a type="button"
                 class="font-sans font-normal text-sm bg-[#dbc5a9] hover:font-medium py-3 px-6 rounded-full ml-2"
-                href="#">Lokasi</a>
+                href="{{ route('location') }}">Lokasi</a>
         </div>
     </div>
 </x-public-layout>
