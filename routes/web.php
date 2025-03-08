@@ -2,14 +2,30 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GiftController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RSVPController;
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'home')->name('home');
     Route::get('/location', 'location')->name('location');
+    Route::get('/rsvps', 'rsvp')->name('rsvp');
 });
 
+Route::controller(AuthController::class)->name('login')->group(function () {
+    Route::get('/login', 'login');
+    Route::post('/auth', 'auth')->name('.auth');
+});
 
-Route::prefix('rsvp')->name('rsvp.')->group(function () {
-    Route::resource('/', AttendanceController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::controller(RSVPController::class)->name('rsvp.')->prefix('rsvp')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+    });
+
+    Route::resource('gift', GiftController::class);
+    Route::controller(AuthController::class)->group(function () {
+        Route::get('/dashboard', 'dashboard')->name('dashboard');
+    });
 });

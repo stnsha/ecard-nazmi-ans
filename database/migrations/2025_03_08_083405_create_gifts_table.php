@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attendances', function (Blueprint $table) {
+        Schema::create('gifts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('pax');
-            $table->boolean('status')->default(1); #1-Yes
-            $table->string('wishes', 500)->nullable();
+            $table->string('title');
+            $table->string('pic_url');
+            $table->string('item_url');
+            $table->integer('quantity');
+            $table->boolean('is_reserved')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('attendances');
+        Schema::dropIfExists('gifts');
     }
 };

@@ -2,22 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\attendance;
+use App\Models\RSVP;
 use Illuminate\Http\Request;
 
-class AttendanceController extends Controller
+class RSVPController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index() {}
+    public function index()
+    {
+        return view('rsvp.index');
+    }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('attendance.create');
+        return view('rsvp.create');
     }
 
     /**
@@ -31,7 +34,7 @@ class AttendanceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(attendance $attendance)
+    public function show(RSVP $rSVP)
     {
         //
     }
@@ -39,7 +42,7 @@ class AttendanceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(attendance $attendance)
+    public function edit(RSVP $rSVP)
     {
         //
     }
@@ -47,7 +50,7 @@ class AttendanceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, attendance $attendance)
+    public function update(Request $request, RSVP $rSVP)
     {
         //
     }
@@ -55,7 +58,7 @@ class AttendanceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(attendance $attendance)
+    public function destroy(RSVP $rSVP)
     {
         //
     }

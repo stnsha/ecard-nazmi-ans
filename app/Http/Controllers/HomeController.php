@@ -15,4 +15,9 @@ class HomeController extends Controller
     {
         return view('location');
     }
+
+    public function rsvp()
+    {
+        return view('rsvp');
+    }
 }
