@@ -30,7 +30,7 @@
         </svg>
     </button>
     <aside id="cta-button-sidebar"
-        class="fixed top-0 left-0 z-40 w-48 mt-8 ml-3 h-[670px] transition-transform -translate-x-full sm:translate-x-0"
+        class="fixed top-0 left-0 z-40 w-48 mt-4 ml-3 h-[670px] transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar">
         <div class="h-full px-3 pt-8 overflow-y-auto bg-white rounded-xl">
             <span class="flex font-bold text-lg text-slate-900 mb-6">#foreverANalways</span>
@@ -66,7 +66,7 @@
                 </li>
             </ul>
             <ul
-                class="flex justify-start items-center w-full mb-2 space-y-2 font-medium {{ Route::is('gift.index') ? 'bg-[#c1554e] hover:bg-orange-800' : 'bg:none' }}">
+                class="flex justify-start items-center w-full mb-2 space-y-2 font-medium {{ Route::is('gift.index') ? 'bg-[#c1554e] hover:bg-orange-800 rounded-md' : 'bg-none' }}">
                 <li>
                     <a href="{{ route('gift.index') }}"
                         class="flex items-center p-2 rounded-lg {{ Route::is('gift.index') ? 'text-white hover:none' : 'text-gray-900 hover:text-amber-800' }}">
@@ -82,7 +82,7 @@
             </ul>
         </div>
     </aside>
-    <div class="flex w-4/5 pt-8 pb-4 sm:ml-56">
+    <div class="flex w-4/5 mt-4 pb-4 sm:ml-56">
         {{ $slot }}
     </div>
 </body>

@@ -18,13 +18,13 @@
                 2025</span>
             <span class="font-sans font-normal text-slate-950 text-xs/7 tracking-wider">#foreverANalways</span>
         </div>
-        <div class="flex flex-row justify-center items-center w-full md:w-1/2">
+        {{-- <div class="flex flex-row justify-center items-center w-full md:w-1/2">
             <a type="button"
                 class="font-sans font-normal text-sm bg-[#dbc5a9] hover:font-medium py-3 px-6 rounded-full"
                 href="{{ route('rsvp') }}">RSVP</a>
             <a type="button"
                 class="font-sans font-normal text-sm bg-[#dbc5a9] hover:font-medium py-3 px-6 rounded-full ml-2"
                 href="{{ route('location') }}">Lokasi</a>
-        </div>
+        </div> --}}
     </div>
 </x-public-layout>

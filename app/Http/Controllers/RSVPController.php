@@ -12,7 +12,8 @@ class RSVPController extends Controller
      */
     public function index()
     {
-        return view('rsvp.index');
+        $rsvps = RSVP::all();
+        return view('rsvp.index', compact('rsvps'));
     }
 
     /**
@@ -28,7 +29,23 @@ class RSVPController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required',
+            'pax' => 'required',
+            'is_attend' => 'required',
+            'time_slot' => 'required',
+            'wishes' => 'nullable',
+        ]);
+
+        if ($validated) {
+            $rsvp = RSVP::create([
+                'name' => $request->name,
+                'pax' => $request->pax,
+                'is_attend' => $request->is_attend,
+                'time_slot' => $request->time_slot,
+                'wishes' => $request->wishes,
+            ]);
+        }
     }
 
     /**

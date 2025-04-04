@@ -18,13 +18,16 @@ Route::controller(AuthController::class)->name('login')->group(function () {
     Route::post('/auth', 'auth')->name('.auth');
 });
 
-Route::middleware(['auth'])->group(function () {
-    Route::controller(RSVPController::class)->name('rsvp.')->prefix('rsvp')->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('/create', 'create')->name('create');
-    });
+Route::controller(RSVPController::class)->name('rsvp.')->group(function () {
+    Route::post('/store', 'store')->name('store');
+});
 
+Route::middleware(['auth'])->group(function () {
+    Route::controller(RSVPController::class)->name('rsvp.')->group(function () {
+        Route::get('/index', 'index')->name('index');
+    });
     Route::resource('gift', GiftController::class);
+
     Route::controller(AuthController::class)->group(function () {
         Route::get('/dashboard', 'dashboard')->name('dashboard');
     });

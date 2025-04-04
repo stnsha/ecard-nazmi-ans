@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Slot;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -18,6 +19,7 @@ class HomeController extends Controller
 
     public function rsvp()
     {
-        return view('rsvp');
+        $slots = Slot::where('status', 1)->get();
+        return view('rsvp', compact('slots'));
     }
 }

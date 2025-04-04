@@ -12,7 +12,8 @@ class GiftController extends Controller
      */
     public function index()
     {
-        //
+        $gifts = Gift::all();
+        return view('gift.index', compact('gifts'));
     }
 
     /**
@@ -20,7 +21,7 @@ class GiftController extends Controller
      */
     public function create()
     {
-        //
+        return view('gift.create');
     }
 
     /**
@@ -28,7 +29,17 @@ class GiftController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'pic_url' => ['required', 'url'],
+            'item_url' => ['required', 'url'],
+            'quantity' => ['required', 'integer', 'min:1'],
+        ]);
+
+        if ($validated) {
+            $gift = Gift::create($validated);
+            return redirect()->route('gift.index')->with('success', 'Gift successfully added.');
+        }
     }
 
     /**
@@ -44,7 +55,7 @@ class GiftController extends Controller
      */
     public function edit(Gift $gift)
     {
-        //
+        return view('gift.edit', compact('gift'));
     }
 
     /**
@@ -52,7 +63,21 @@ class GiftController extends Controller
      */
     public function update(Request $request, Gift $gift)
     {
-        //
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'pic_url' => ['required', 'url'],
+            'item_url' => ['required', 'url'],
+            'quantity' => ['required', 'integer', 'min:1'],
+        ]);
+
+        if ($validated) {
+            $gift->title  = $request->title;
+            $gift->pic_url = $request->pic_url;
+            $gift->item_url = $request->item_url;
+            $gift->quantity = $request->quantity;
+            $gift->save();
+            return redirect()->route('gift.index')->with('success', 'Gift ' . $gift->id . ' successfully updated.');
+        }
     }
 
     /**
