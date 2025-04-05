@@ -2,7 +2,7 @@
     <div class="flex flex-col justify-center items-center w-full">
         <span class="font-sans font-medium text-md text-slate-950 mb-8 pt-4">RSVP</span>
         <div class="flex flex-col w-full px-2 md:px-0">
-            <form class="flex flex-col w-full" action="{{ route('rsvp.store') }}" method="POST">
+            <form class="flex flex-col w-full" action="{{ route('rsvp.store') }}" method="POST" id="rsvp-form">
                 @method('post')
                 @csrf
                 <div class="flex flex-col justify-start items-center mb-3 w-full">
@@ -57,15 +57,47 @@
                 </div>
 
                 <div class="flex flex-col justify-start items-center mb-3 w-full">
-                    {{-- <span class="font-sans font-medium text-xs text-slate-950">Terima kasih daun keladi, jumpa
-                        nanti!</span> --}}
+                    <span class="font-sans font-medium text-xs text-slate-950" id="thank-you">Terima kasih daun keladi,
+                        jumpa
+                        nanti!</span>
                     {{-- <a href="" class="font-sans font-normal text-xs text-slate-950 italic hover:font-medium">Klik
                         sini untuk salam
                         kaut
                         online 💰</a> --}}
                 </div>
             </form>
-
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('rsvp-form');
+            const thankYou = document.getElementById('thank-you');
+
+            thankYou.classList.add('hidden'); // hide by default
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const formData = new FormData(form);
+
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                        'Accept': 'application/json'
+                    },
+                    body: formData
+                });
+
+                if (response.ok) {
+                    form.reset();
+                    thankYou.classList.remove('hidden');
+                } else {
+                    const data = await response.json();
+                    alert('Ada masalah: ' + (data.message || 'Sila semak borang anda.'));
+                }
+            });
+        });
+    </script>
+
 </x-public-layout>

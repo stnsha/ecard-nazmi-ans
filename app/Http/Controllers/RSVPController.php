@@ -37,15 +37,9 @@ class RSVPController extends Controller
             'wishes' => 'nullable',
         ]);
 
-        if ($validated) {
-            $rsvp = RSVP::create([
-                'name' => $request->name,
-                'pax' => $request->pax,
-                'is_attend' => $request->is_attend,
-                'time_slot' => $request->time_slot,
-                'wishes' => $request->wishes,
-            ]);
-        }
+        RSVP::create($validated);
+
+        return response()->json(['message' => 'RSVP berjaya!']);
     }
 
     /**
