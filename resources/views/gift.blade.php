@@ -15,9 +15,9 @@
                 @csrf
                 <div class="flex justify-center items-center w-full">
                     <input type="text" name="amount" id="amount" placeholder="0"
-                        class="w-1/5 mx-2 border-gray-200 rounded-md">
+                        class="w-1/5 mx-2 border-gray-200 rounded-md text-sm">
                     <input type="submit" value="Teruskan"
-                        class="w-auto mx-2 font-normal text-sm bg-[#dbc5a9] rounded-md p-2">
+                        class="w-auto mx-2 font-normal text-xs bg-[#dbc5a9] rounded-md p-2">
                 </div>
             </form>
             <span class="font-sans font-bold text-md text-center text-slate-950 mb-3">Hadiah</span>
