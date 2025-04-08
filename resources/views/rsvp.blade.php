@@ -1,5 +1,57 @@
 <x-public-layout>
     <div class="flex flex-col justify-center items-center w-full md:w-1/2 mx-auto">
+        <span class="font-sans font-bold text-md text-center text-slate-950 mb-3">Garis Masa</span>
+        <!--class="flex w-full bg-white rounded-lg shadow-md shadow-inset-sm px-4 py-2"-->
+        <div class="flex flex-col justify-start w-full px-4 md:px-0">
+            <ol class="relative border-s border-gray-300">
+                <li class="flex flex-col mb-3 ms-4">
+                    <div class="absolute w-3 h-3 bg-[#f17b89] rounded-full mt-1.5 -start-1.5 border"></div>
+                    <div class="flex justify-between items-center w-full">
+                        <div class="flex flex-col">
+                            <time class="mb-1 text-[10px] font-normal leading-none text-gray-500">11:00 pagi</time>
+                            <span class="font-sans font-normal text-sm text-gray-950">Majlis bermula</span>
+                        </div>
+                        <img src="{{ asset('start.png') }}" alt="Opening" class="w-10" />
+                    </div>
+                </li>
+            </ol>
+            <ol class="relative border-s border-gray-300">
+                <li class="flex flex-col mb-3 ms-4">
+                    <div class="absolute w-3 h-3 bg-[#f17b89] rounded-full mt-1.5 -start-1.5 border"></div>
+                    <div class="flex justify-between items-center w-full">
+                        <div class="flex flex-col">
+                            <time class="mb-1 text-[10px] font-normal leading-none text-gray-500">12:30 t/hari</time>
+                            <span class="font-sans font-normal text-sm text-gray-950">Ketibaan pengantin</span>
+                        </div>
+                        <img src="{{ asset('bridegroom.png') }}" alt="Bride and Groom" class="w-10" />
+                    </div>
+                </li>
+            </ol>
+            <ol class="relative border-s border-gray-300">
+                <li class="flex flex-col mb-3 ms-4">
+                    <div class="absolute w-3 h-3 bg-[#f17b89] rounded-full mt-1.5 -start-1.5 border"></div>
+                    <div class="flex justify-between items-center w-full">
+                        <div class="flex flex-col">
+                            <time class="mb-1 text-[10px] font-normal leading-none text-gray-500">01:30 petang</time>
+                            <span class="font-sans font-normal text-sm text-gray-950">Sesi bergambar</span>
+                        </div>
+                        <img src="{{ asset('camera.png') }}" alt="Camera" class="w-9" />
+                    </div>
+                </li>
+            </ol>
+            <ol class="relative border-s border-gray-300">
+                <li class="flex flex-col mb-3 ms-4">
+                    <div class="absolute w-3 h-3 bg-[#f17b89] rounded-full mt-1.5 -start-1.5 border"></div>
+                    <div class="flex justify-between items-center w-full">
+                        <div class="flex flex-col">
+                            <time class="mb-1 text-[10px] font-normal leading-none text-gray-500">04:00 petang</time>
+                            <span class="font-sans font-normal text-sm text-gray-950">Majlis bersurai</span>
+                        </div>
+                        <img src="{{ asset('end.png') }}" alt="End" class="w-9" />
+                    </div>
+                </li>
+            </ol>
+        </div>
         <span class="font-sans font-bold text-md text-center text-slate-950 mb-3">RSVP</span>
         <div class="flex flex-col w-full px-2 md:px-0">
             <form class="flex flex-col w-full" action="{{ route('rsvp.store') }}" method="POST" id="rsvp-form">
@@ -28,7 +80,7 @@
                     </div>
                     <div class="flex flex-row justify-center items-center ml-2 mb-3">
                         <input type="radio" name="is_attend" id="is_attend" class="bg-slate-100" value="0">
-                        <span class="font-sans font-normal text-sm text-start w-full ml-2">Maaf ☹️😟</span>
+                        <span class="font-sans font-normal text-sm text-start w-full ml-2">Maaf ☹️</span>
                     </div>
                 </div>
 
@@ -57,7 +109,8 @@
                 </div>
 
                 <div class="flex flex-col justify-start items-center mb-3 w-full">
-                    <span class="font-sans font-medium text-xs text-slate-950" id="thank-you">Terima kasih daun keladi,
+                    <span class="font-sans font-medium text-xs text-slate-950" id="thank-you">Terima kasih daun
+                        keladi,
                         jumpa
                         nanti!</span>
                     {{-- <a href="" class="font-sans font-normal text-xs text-slate-950 italic hover:font-medium">Klik

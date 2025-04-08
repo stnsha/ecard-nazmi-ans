@@ -43,7 +43,9 @@
                         class="block py-2 px-3 hover:text-[#faf9f6] {{ request()->routeIs('location') ? 'text-slate-800 md:text-red-950 bg-[#dbc5a9] md:bg-[#ede3d7] rounded-md md:rounded-none' : '' }}">Lokasi</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3 text-slate-800 hover:text-[#faf9f6]">Belikan hadiah!</a>
+                    <a href="{{ route('gift') }}"
+                        class="block py-2 px-3 hover:text-[#faf9f6] {{ request()->routeIs('gift') ? 'text-slate-800 md:text-red-950 bg-[#dbc5a9] md:bg-[#ede3d7] rounded-md md:rounded-none' : '' }}">Belikan
+                        hadiah!</a>
                 </li>
             </ul>
         </div>
