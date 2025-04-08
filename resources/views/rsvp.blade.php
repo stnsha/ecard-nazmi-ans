@@ -1,6 +1,6 @@
 <x-public-layout>
-    <div class="flex flex-col justify-center items-center w-full">
-        <span class="font-sans font-medium text-md text-slate-950 mb-8 pt-4">RSVP</span>
+    <div class="flex flex-col justify-center items-center w-full md:w-1/2 mx-auto">
+        <span class="font-sans font-bold text-md text-center text-slate-950 mb-3">RSVP</span>
         <div class="flex flex-col w-full px-2 md:px-0">
             <form class="flex flex-col w-full" action="{{ route('rsvp.store') }}" method="POST" id="rsvp-form">
                 @method('post')
@@ -20,7 +20,7 @@
                         @endfor
                     </select>
                 </div>
-                <div class="flex flex-col md:flex-row justify-start items-start md:items-center mb-3 w-full">
+                <div class="flex flex-col justify-start items-start mb-3 w-full">
                     <span class="flex font-sans font-medium text-sm text-start w-full ml-3 pb-1.5">Hadir?</span>
                     <div class="flex flex-row justify-center items-center ml-2 mb-3">
                         <input type="radio" name="is_attend" id="is_attend" class="bg-slate-100" value="1">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col md:flex-row justify-start items-start md:items-center mb-3 w-full">
+                <div class="flex flex-col justify-start items-start mb-3 w-full">
                     <span class="flex font-sans font-medium text-sm text-start w-full ml-3 pb-1.5">Slot Masa</span>
                     @foreach ($slots as $key => $s)
                         <div class="flex flex-row justify-center items-center ml-2 mb-3">
