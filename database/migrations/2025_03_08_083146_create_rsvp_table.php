@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('RSVP', function (Blueprint $table) {
+        Schema::create('rsvp', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->boolean('is_attend')->default(true);
