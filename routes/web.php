@@ -11,6 +11,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'home')->name('home');
     Route::get('/location', 'location')->name('location');
     Route::get('/rsvps', 'rsvp')->name('rsvp');
+    Route::get('/getRsvps', 'getRsvps')->name('getRsvps');
     Route::get('/salam-kaut', 'gift')->name('gift');
 });
 

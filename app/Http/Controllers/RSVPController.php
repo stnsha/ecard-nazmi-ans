@@ -34,13 +34,15 @@ class RSVPController extends Controller
             'pax' => 'required',
             'is_attend' => 'required',
             'time_slot' => 'required',
-            'wishes' => 'nullable',
+            'wishes' => 'nullable|regex:/^(\S+\s?){0,25}$/',
         ], [
             'name.required' => 'Sila isi nama anda.',
             'pax.required' => 'Sila pilih bilangan pax.',
             'is_attend.required' => 'Sila pilih sama ada anda akan hadir atau tidak.',
             'time_slot.required' => 'Sila pilih slot masa.',
+            'wishes.regex' => 'Ucapan tidak boleh melebihi 25 perkataan.',
         ]);
+
 
 
         RSVP::create($validated);

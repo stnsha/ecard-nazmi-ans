@@ -24,7 +24,7 @@
             </div>
             <div class="flex flex-col justify-center items-center w-full md:w-1/2 mb-4 md:mb-8">
                 <span class="font-sans font-normal text-slate-950 text-xs/7 capitalize tracking-wider">Rumah Abang
-                    Jamil,
+                    Jamil 2,
                     Senawang</span>
                 <span class="font-sans font-bold text-slate-950 text-lg/7 md:text-2xl/7 uppercase tracking-wider">31 Mei
                     2025</span>
@@ -51,6 +51,6 @@
             setTimeout(() => {
                 el.classList.add('hidden', 'opacity-0'); // Hide again after animation
             }, 500); // Adjust to match the duration of slideOutDown animation
-        }, 4000); // Hide after 2 seconds of showing
+        }, 5000); // Hide after 2 seconds of showing
     </script>
 </x-public-layout>

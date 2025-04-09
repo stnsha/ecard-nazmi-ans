@@ -1,16 +1,9 @@
 <x-public-layout>
     <div class="flex flex-col justify-center items-center px-4 mx-auto w-full pb-8">
         <span class="font-sans font-bold text-md text-center text-slate-950 mb-3">Salam Kaut</span>
-        <div class="flex-col w-full max-w-sm font-sans font-normal text-xs md:text-sm text-slate-950 italic px-4 py-2 rounded-md mb-3 hidden opacity-0 animate__fadeIn transition-all duration-300"
-            id="nota_kaki">
-            <span class="font-semibold">Nota kaki:</span>
-            <span>Salam Kaut ni, anda boleh beri atau tidak, semuanya ikhlas dari hati. Jika ada rezeki, semoga ia
-                menjadi sedekah yang bermanfaat dan membawa keberkatan. Untuk kemudahan, boleh bayar terus guna FPX je,
-                tak perlu scan QR. Terima kasih banyak, doakan yang baik-baik untuk
-                kami! 💖</span>
-        </div>
+
         <div id="content" class="flex flex-col justify-center items-center">
-            <form action="" method="post" class="flex justify-center items-center mb-3">
+            <form action="#" method="post" class="flex justify-center items-center mb-3">
                 @method('post')
                 @csrf
                 <div class="flex justify-center items-center w-full">
@@ -20,6 +13,17 @@
                         class="w-auto mx-2 font-normal text-xs bg-[#dbc5a9] rounded-md p-2">
                 </div>
             </form>
+            <div class="flex-col w-full max-w-sm font-sans font-normal text-xs md:text-sm text-slate-950 italic px-4 py-2 rounded-md mb-3 hidden opacity-0 animate__fadeIn transition-all duration-300"
+                id="nota_kaki">
+                <span class="font-semibold">Nota kaki:</span>
+                <span class="text-center">Salam Kaut ni, anda boleh beri atau tidak, semuanya ikhlas dari hati. Jika
+                    ada
+                    rezeki, semoga ia
+                    menjadi sedekah yang bermanfaat dan membawa keberkatan. Untuk kemudahan, boleh bayar terus guna FPX
+                    je,
+                    tak perlu scan QR. Terima kasih banyak, doakan yang baik-baik untuk
+                    kami! 💖</span>
+            </div>
             <span class="font-sans font-bold text-md text-center text-slate-950 mb-3">Hadiah</span>
             <div class="flex flex-col w-full max-w-sm">
                 @foreach ($gifts as $key => $g)

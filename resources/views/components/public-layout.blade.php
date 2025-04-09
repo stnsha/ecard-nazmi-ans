@@ -54,8 +54,10 @@
     <div class="flex w-full">
         {{ $slot }}
     </div>
-    <footer class="flex flex-row justify-center items-center w-full py-2">
-        <span class="font-sans font-medium text-xs italic text-gray-600 px-0.5">handcrafted by ans, the bride</span>
+    <footer
+        class="{{ request()->routeIs('home') ? 'hidden' : 'flex' }} flex-row justify-center items-center w-full py-2">
+        <span class="font-sans font-medium text-xs italic text-gray-600 px-0.5">handcrafted
+            by ans, the bride</span>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-3 h-3 text-red-500">
             <path stroke-linecap="round" stroke-linejoin="round"
