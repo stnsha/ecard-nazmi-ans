@@ -35,7 +35,13 @@ class RSVPController extends Controller
             'is_attend' => 'required',
             'time_slot' => 'required',
             'wishes' => 'nullable',
+        ], [
+            'name.required' => 'Sila isi nama anda.',
+            'pax.required' => 'Sila pilih bilangan pax.',
+            'is_attend.required' => 'Sila pilih sama ada anda akan hadir atau tidak.',
+            'time_slot.required' => 'Sila pilih slot masa.',
         ]);
+
 
         RSVP::create($validated);
 

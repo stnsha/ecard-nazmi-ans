@@ -61,6 +61,9 @@
                     <span class="flex font-sans font-medium text-sm text-start w-full ml-3 pb-1.5">Nama</span>
                     <input class="flex rounded-full border-0 w-full bg-slate-100" type="text" name="name"
                         id="name">
+                    @error('name')
+                        <div class="text-red-500 text-sm">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="flex flex-col justify-start items-center mb-3 w-full">
                     <span class="flex font-sans font-medium text-sm text-start w-full ml-3 pb-1.5">Pax</span>
@@ -71,30 +74,38 @@
                             </option>
                         @endfor
                     </select>
+                    @error('pax')
+                        <div class="text-red-500 text-sm">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="flex flex-col justify-start items-start mb-3 w-full">
                     <span class="flex font-sans font-medium text-sm text-start w-full ml-3 pb-1.5">Hadir?</span>
-                    <div class="flex flex-row justify-center items-center ml-2 mb-3">
-                        <input type="radio" name="is_attend" id="is_attend" class="bg-slate-100" value="1">
-                        <span class="font-sans font-normal text-sm text-start w-full ml-2">Yup 😆</span>
+                    <div class="flex flex-col space-y-2 ml-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="radio" name="is_attend" class="bg-slate-100" value="1">
+                            <span class="font-sans font-normal text-sm">Ya</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="radio" name="is_attend" class="bg-slate-100" value="0">
+                            <span class="font-sans font-normal text-sm">Tidak</span>
+                        </label>
                     </div>
-                    <div class="flex flex-row justify-center items-center ml-2 mb-3">
-                        <input type="radio" name="is_attend" id="is_attend" class="bg-slate-100" value="0">
-                        <span class="font-sans font-normal text-sm text-start w-full ml-2">Maaf ☹️</span>
-                    </div>
+                    <div id="error-is_attend"></div>
                 </div>
 
                 <div class="flex flex-col justify-start items-start mb-3 w-full">
                     <span class="flex font-sans font-medium text-sm text-start w-full ml-3 pb-1.5">Slot Masa</span>
-                    @foreach ($slots as $key => $s)
-                        <div class="flex flex-row justify-center items-center ml-2 mb-3">
-                            <input type="radio" name="time_slot" id="time_slot" class="bg-slate-100"
-                                value="{{ $s->id }}">
-                            <span
-                                class="font-sans font-normal text-sm text-start w-full ml-2">{{ $s->time_slot }}</span>
-                        </div>
-                    @endforeach
+                    <div class="flex flex-col space-y-2 ml-2">
+                        @foreach ($slots as $key => $s)
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="time_slot" class="bg-slate-100" value="{{ $s->id }}">
+                                <span class="font-sans font-normal text-sm">{{ $s->time_slot }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+                    <div id="error-time_slot"></div>
                 </div>
+
 
                 <div class="flex flex-col justify-start items-center mb-3 w-full">
                     <span class="flex font-sans font-medium text-sm text-start w-full ml-3 pb-1.5">Ucapan untuk
@@ -109,7 +120,7 @@
                 </div>
 
                 <div class="flex flex-col justify-start items-center mb-3 w-full">
-                    <span class="font-sans font-medium text-xs text-slate-950" id="thank-you">Terima kasih daun
+                    <span class="font-sans font-medium text-xs text-green-600" id="thank-you">Terima kasih daun
                         keladi,
                         jumpa
                         nanti!</span>
@@ -121,7 +132,7 @@
             </form>
         </div>
     </div>
-    <script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('rsvp-form');
             const thankYou = document.getElementById('thank-you');
@@ -130,6 +141,9 @@
 
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
+
+                // Clear all previous error messages
+                document.querySelectorAll('.error-message').forEach(el => el.remove());
 
                 const formData = new FormData(form);
 
@@ -147,7 +161,74 @@
                     thankYou.classList.remove('hidden');
                 } else {
                     const data = await response.json();
-                    alert('Ada masalah: ' + (data.message || 'Sila semak borang anda.'));
+
+                    if (data.errors) {
+                        Object.entries(data.errors).forEach(([field, messages]) => {
+                            const input = form.querySelector(`[name="${field}"]`);
+                            if (input) {
+                                const errorDiv = document.createElement('div');
+                                errorDiv.className = 'text-red-500 text-sm error-message';
+                                errorDiv.innerText = messages[0];
+                                input.parentNode.appendChild(errorDiv);
+                            }
+                        });
+                    } else {
+                        alert('Ada masalah: ' + (data.message || 'Sila semak borang anda.'));
+                    }
+                }
+            });
+
+        });
+    </script> --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('rsvp-form');
+            const thankYou = document.getElementById('thank-you');
+
+            thankYou.classList.add('hidden');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                // Clear all previous error messages
+                document.querySelectorAll('.error-message').forEach(el => el.remove());
+
+                const formData = new FormData(form);
+
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                        'Accept': 'application/json'
+                    },
+                    body: formData
+                });
+
+                if (response.ok) {
+                    form.reset();
+                    thankYou.classList.remove('hidden');
+                } else {
+                    const data = await response.json();
+
+                    if (data.errors) {
+                        Object.entries(data.errors).forEach(([field, messages]) => {
+                            const errorWrapper = document.getElementById(`error-${field}`);
+                            const input = form.querySelector(`[name="${field}"]`);
+
+                            const errorDiv = document.createElement('div');
+                            errorDiv.className =
+                                'flex flex-row justify-start items-center w-full font-sans font-medium text-red-500 text-xs pt-1.5 error-message';
+                            errorDiv.innerText = messages[0];
+
+                            if (errorWrapper) {
+                                errorWrapper.appendChild(errorDiv);
+                            } else if (input) {
+                                input.parentNode.appendChild(errorDiv);
+                            }
+                        });
+                    } else {
+                        alert('Ada masalah: ' + (data.message || 'Sila semak borang anda.'));
+                    }
                 }
             });
         });
