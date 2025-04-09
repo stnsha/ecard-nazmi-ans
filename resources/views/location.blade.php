@@ -69,7 +69,7 @@
                             Fakhruddin Bin Ramli</span>
                         <span class="font-sans font-normal text-xs text-gray-700 text-wrap italic">Abang
                             pengantin
-                            perempuan</span>
+                            lelaki</span>
                         {{-- <span class="font-sans font-normal text-[10px] text-gray-700 text-wrap">+60 11-7111 7371</span> --}}
                     </div>
                     <a href="https://api.whatsapp.com/send?phone=60182090471" target="_blank">
