@@ -74,8 +74,7 @@
                 <button type="button"
                     class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     id="prev-btn">
-                    <span
-                        class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white/30 rtl:rotate-180">
+                    <span class="inline-flex items-center justify-center w-5 h-5 rounded-full rtl:rotate-180">
                         <svg aria-hidden="true" class="w-4 h-4 text-[#f17b89]" fill="none" viewBox="0 0 6 10"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -88,8 +87,7 @@
                 <button type="button"
                     class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     id="next-btn">
-                    <span
-                        class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white/30 rtl:rotate-180">
+                    <span class="inline-flex items-center justify-center w-5 h-5 rounded-full rtl:rotate-180">
                         <svg aria-hidden="true" class="w-4 h-4 text-[#f17b89]" fill="none" viewBox="0 0 6 10"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
