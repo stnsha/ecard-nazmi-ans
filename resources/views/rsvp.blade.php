@@ -135,11 +135,11 @@
                     @enderror
                 </div>
                 <div class="flex flex-col justify-start items-start mb-3 w-full">
-                    <span class="flex font-sans font-medium text-sm text-start w-full ml-3 pb-1.5">Hadir?</span>
+                    <span class="flex font-sans font-medium text-sm text-start w-full ml-3 pb-1.5">Kehadiran</span>
                     <div class="flex flex-col space-y-2 ml-2">
                         <label class="flex items-center space-x-2">
                             <input type="radio" name="is_attend" class="bg-slate-100" value="1">
-                            <span class="font-sans font-normal text-sm">Ya</span>
+                            <span class="font-sans font-normal text-sm">Hadir</span>
                         </label>
                         <label class="flex items-center space-x-2">
                             <input type="radio" name="is_attend" class="bg-slate-100" value="0">
@@ -164,8 +164,7 @@
                 </div>
 
                 <div class="flex flex-col justify-start items-center mb-3 w-full">
-                    <span class="flex font-sans font-medium text-sm text-start w-full ml-3 pb-1.5">Ucapan untuk
-                        pengantin</span>
+                    <span class="flex font-sans font-medium text-sm text-start w-full ml-3 pb-1.5">Ucapan</span>
                     <textarea class="flex rounded-lg text-sm px-4 py-2 border-0 w-full bg-slate-100" type="text" name="wishes"
                         id="wishes" rows="5"></textarea>
                 </div>
