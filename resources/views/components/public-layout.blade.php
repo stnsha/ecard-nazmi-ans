@@ -19,6 +19,7 @@
 </head>
 
 <body class="flex flex-col h-screen font-sans antialiased bg-[#ede3d7]">
+
     <nav class="flex flex-row-reverse md:flex-row justify-start md:justify-center w-full mt-0 md:mt-4">
         <button data-collapse-toggle="navbar-hamburger" type="button"
             class="flex justify-between items-end p-2 w-10 h-10 text-sm text-gray-500 rounded-lg md:hidden"
@@ -46,8 +47,7 @@
                 </li>
                 <li>
                     <a href="{{ route('gift') }}"
-                        class="block py-2 px-3 hover:text-[#faf9f6] {{ request()->routeIs('gift') ? 'text-slate-800 md:text-red-950 bg-[#dbc5a9] md:bg-[#ede3d7] rounded-md md:rounded-none' : '' }}">Belikan
-                        hadiah!</a>
+                        class="block py-2 px-3 hover:text-[#faf9f6] {{ request()->routeIs('gift') ? 'text-slate-800 md:text-red-950 bg-[#dbc5a9] md:bg-[#ede3d7] rounded-md md:rounded-none' : '' }}">Wishlist</a>
                 </li>
             </ul>
         </div>

@@ -8,6 +8,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RSVPController;
 use App\Http\Controllers\ToyyibPayController;
 
+Route::fallback(function () {
+    return redirect('/');
+});
+
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'home')->name('home');
     Route::get('/location', 'location')->name('location');

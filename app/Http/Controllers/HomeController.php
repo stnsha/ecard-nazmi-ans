@@ -21,7 +21,9 @@ class HomeController extends Controller
 
     public function rsvp()
     {
-        $rsvps = RSVP::all();
+        $rsvps = Rsvp::whereNotNull('wishes')
+            ->where('wishes', '!=', '')
+            ->get();
         $slots = Slot::where('status', 1)->get();
         return view('rsvp', compact('slots', 'rsvps'));
     }
@@ -35,8 +37,9 @@ class HomeController extends Controller
     public function getRsvps()
     {
         // Retrieve all RSVPs from the database
-        $rsvps = Rsvp::all();
-
+        $rsvps = Rsvp::whereNotNull('wishes')
+            ->where('wishes', '!=', '')
+            ->get();
         // Return the RSVPs as JSON
         return response()->json($rsvps);
     }

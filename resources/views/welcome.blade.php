@@ -1,11 +1,16 @@
 <x-public-layout>
     <div class="flex flex-col w-full">
         <!-- Image container -->
-        <div class="flex justify-end items-end md:hidden">
+        {{-- <div class="flex justify-end items-end md:hidden">
             <img src="{{ asset('direction.svg') }}" alt="direction" id="directionImage"
                 class="w-1/2 mr-8 hidden opacity-0 animate__animated transition-all duration-300">
-        </div>
+        </div> --}}
 
+        <iframe class="hidden" width="560" height="315"
+            src="https://www.youtube.com/embed/mgvIq74DUzo?autoplay=1&loop=1&si=8xgwn2uzbIw0zYlb"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <!-- Content below the image -->
         <div id="content"
             class="flex flex-col justify-center items-center w-full pb-8 mt-4 transition-all duration-300">
@@ -30,10 +35,14 @@
                     2025</span>
                 <span class="font-sans font-normal text-slate-950 text-xs/7 tracking-wider">#foreverANalways</span>
             </div>
+            <div class="flex flex-col justify-center items-center w-full md:w-1/2 mb-4 md:mb-8">
+                <a href="{{ route('rsvp') }}"
+                    class="bg-[#7A3E3E] text-orange-100 px-4 py-2 rounded-full hover:bg-[#915353]">Buka</a>
+            </div>
         </div>
     </div>
 
-    <script>
+    {{-- <script>
         setTimeout(() => {
             const el = document.getElementById('directionImage');
             const content = document.getElementById('content');
@@ -52,5 +61,5 @@
                 el.classList.add('hidden', 'opacity-0'); // Hide again after animation
             }, 500); // Adjust to match the duration of slideOutDown animation
         }, 5000); // Hide after 2 seconds of showing
-    </script>
+    </script> --}}
 </x-public-layout>

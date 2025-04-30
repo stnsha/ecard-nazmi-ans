@@ -1,6 +1,11 @@
 <x-public-layout>
     <div class="flex flex-col justify-center items-center w-full md:w-1/2 mx-auto">
-        <span class="font-sans font-bold text-md text-center text-slate-950 mb-3">Garis Masa</span>
+        <iframe class="hidden" width="560" height="315"
+            src="https://www.youtube.com/embed/mgvIq74DUzo?autoplay=1&loop=1&si=8xgwn2uzbIw0zYlb"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <span class="font-sans font-bold text-md text-center text-slate-950 mb-3">Aturcara Majlis</span>
         <div class="flex flex-col justify-start w-full px-4 md:px-0">
             <!-- Timeline content remains unchanged -->
             <ol class="relative border-s border-gray-300">
@@ -410,7 +415,8 @@
                                 }
                             });
                         } else {
-                            alert('Ada masalah: ' + (data.message || 'Sila semak borang anda.'));
+                            console.error('Ada masalah: ' + (data.message ||
+                                'Sila semak borang anda.'));
                         }
                     }
                 } catch (error) {
