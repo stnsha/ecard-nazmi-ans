@@ -6,10 +6,10 @@
 
             <img src="{{ asset('hlbimg.png') }}" alt="" class="w-2/3 md:w-1/3 mb-2">
 
-            <img src="{{ asset('qr2.png') }}" alt="QR" class="w-auto md:w-1/3 mb-2">
+            <img src="{{ asset('qr2.png') }}" alt="QR" class="w-2/3 md:w-1/3 mb-2">
 
             <div class="flex flex-col justify-center items-start">
-                <span class="font-normal text-sm text-slate-950 pb-0.5">Siti Anasuha Binti Rosli</span>
+                <span class="font-normal text-md text-slate-950 pb-0.5">Siti Anasuha Binti Rosli</span>
                 <div class="flex justify-center items-start">
                     <span id="number" class="font-normal text-sm text-slate-950 pb-1.5">01101073203</span>
                     <button onclick="copyNumber()"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
